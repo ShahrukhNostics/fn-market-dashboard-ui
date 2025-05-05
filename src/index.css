@@ -1,0 +1,4 @@
+:root {
+  --custom-button: 147 51% 47%; /* HSL for a teal-like color */
+  --custom-button-foreground: 0 0% 100%; /* White text */
+}
