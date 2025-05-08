@@ -2,6 +2,7 @@ import { useState } from "react";
 import InputField from "../components/InputField/InputField";
 import { useForm, SubmitHandler } from "react-hook-form";
 
+
 interface FormData {
   firstName: string;
 }
@@ -39,6 +40,7 @@ const InputTest = () => {
 
   return (
   <>
+
   {/* uncontrolled input by react-hook-form*/}
     <form onSubmit={handleSubmit(onSubmit)}> 
       <InputField
@@ -63,7 +65,6 @@ const InputTest = () => {
       <button type="submit">Submit</button>
     </form>
 
-
 { /* controlled input by useState*/}
 <form> 
 
@@ -86,6 +87,8 @@ const InputTest = () => {
 />
  <button type="submit" onClick={onSubmitHandler}>Submit</button>
  </form>
+
+
     </>
   );
 };
