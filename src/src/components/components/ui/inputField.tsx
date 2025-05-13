@@ -27,10 +27,11 @@ const inputVariants = cva(
 
 export interface InputFieldProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-    VariantProps<typeof inputVariants> {
+  VariantProps<typeof inputVariants> {
   asChild?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  rightIconPosition?: string;
   placeholder?: string;
   className?: string;
   type?: React.InputHTMLAttributes<HTMLInputElement>['type'];
@@ -58,6 +59,7 @@ const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
       size,
       leftIcon,
       rightIcon,
+      rightIconPosition,
       placeholder,
       asChild = false,
       type = 'text',
@@ -77,11 +79,11 @@ const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
       onBlurCustom,
       ...restProps
     } = props;
-
+    console.log('error', error)
     const Comp = asChild ? Slot : 'input';
 
-    const leftPadding = leftIcon ? 'pl-10' : 'pl-4';
-    const rightPadding = rightIcon ? 'pr-10' : 'pr-4';
+    const leftPadding = leftIcon ? 'pl-12' : 'pl-4';
+    const rightPadding = rightIcon ? 'pr-12' : 'pr-4';
 
     const disabledStyles = disabled
       ? 'bg-gray-100 text-gray-500 border-gray-300 cursor-not-allowed'
@@ -92,13 +94,13 @@ const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
     return (
       <div className="relative w-full">
         {leftIcon && (
-          <span className="absolute left-3 top-6 transform -translate-y-1/2">
+          <span className="absolute left-3 top-6 transform -translate-y-1/2 border-r border-gray-300 pr-3 flex items-center h-6">
             {leftIcon}
           </span>
         )}
 
         {rightIcon && (
-          <span className="absolute right-3 top-6 transform -translate-y-1/2">
+          <span className={`absolute right-3 ${rightIconPosition ? rightIconPosition : "top-3"} transform -translate-y-1/2 border-l border-gray-300 pl-3 flex items-center h-6`}>
             {rightIcon}
           </span>
         )}

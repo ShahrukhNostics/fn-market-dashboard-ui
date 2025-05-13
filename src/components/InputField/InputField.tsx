@@ -3,9 +3,7 @@ import { InputFieldProps as BaseInputFieldProps } from '../../src/components/com
 
 const InputField: React.FC<BaseInputFieldProps> = (props) => {
   return (
-    <div className="space-y-4">
-      <BaseInputField {...props} />
-    </div>
+    <BaseInputField {...props} />
   );
 };
 

@@ -34,6 +34,7 @@ const CheckBoxTest = () => {
         <div className="space-y-4">
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/* Controlled Checkbox */}
+
                 <div className="mb-4">
                     <h3 className="text-lg font-semibold mb-2">Controlled Checkbox</h3>
                     <CheckBox
@@ -41,14 +42,13 @@ const CheckBoxTest = () => {
                         checked={checked}
                         type="checkbox"
                         onChange={onChangeHandler}
-                        unCheckedClassName="rounded border border-blue-300"
                         helperText={"This is a controlled checkbox"}
                         errorText={"This field is required"}
                         error={!checked}
                         errorTextClassName="text-red-600 text-left font-medium"
-                        CheckedIcon={<CheckMarkIcon className="text-white" />}
+                        CheckedIcon={<CheckMarkIcon />}
                         labelClassName="text-sm font-semibold"
-                        inputClassName="w-4 h-4"
+                        // checkIconPosition={"transform -translate-y-[2px]"}
                         helperTextClassName="text-blue-600 text-xs text-left"
                         labelWrapperClassName="hover:bg-gray-50"
                         containerClassName="bg-white"
@@ -59,27 +59,27 @@ const CheckBoxTest = () => {
                 {/* Form Registered Checkbox */}
                 <div className="mb-4">
                     <h3 className="text-lg font-semibold mb-2">Form Registered Checkbox</h3>
-                    <CheckBox
+                    {/* <CheckBox
                         label="Form Registered Checkbox"
                         checked={formCheckboxValue}
-                        type="checkbox"
+                        // type="checkbox"
                         {...register("checkbox", { required: "This field is required" })}
                         // errorText={!formCheckboxValue ? "This field is required" : ""} //for real time error
-                        // error={!formCheckboxValue} // for real time error
+                        // // error={!formCheckboxValue} // for real time error
                         error={!!errors.checkbox} // after submitting the form, the error will be shown
                         errorText={errors.checkbox?.message} // after submitting the form, the error message will be shown
-                        unCheckedClassName="rounded border border-blue-300"
                         errorTextClassName="text-red-600 text-left font-medium"
                         helperText={"This is a form registered checkbox"}
-                        CheckedIcon={<CheckMarkIcon className="text-white" />}
-                        labelClassName="text-sm font-semibold"
-                        inputClassName="w-4 h-4"
+                        // CheckedIcon={<CheckMarkIcon />}
+                        // labelClassName="text-sm font-semibold"
+                        // // inputClassName="w-4 h-4"
                         helperTextClassName="text-blue-600 text-xs text-left"
-                        labelWrapperClassName="hover:bg-gray-50"
-                        containerClassName="bg-white"
-                        dataTestId="form-checkbox"
-                    />
+                    // labelWrapperClassName="hover:bg-gray-50"
+                    // containerClassName="bg-white"
+                    // dataTestId="form-checkbox"
+                    /> */}
                 </div>
+
 
                 <button
                     type="submit"

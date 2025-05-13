@@ -9,11 +9,11 @@ export interface CheckboxFieldProps
   inputClassName?: string;
   error?: boolean;
   helperText?: string;
-  unCheckedClassName?: string;
   errorText?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   CheckedIcon?: React.ReactNode;
+  checkIconPosition?: string;
   dataTestId?: string;
   helperTextClassName?: string;
   errorTextClassName?: string;
@@ -22,7 +22,7 @@ export interface CheckboxFieldProps
   labelWrapperClassName?: string;
   containerClassName?: string;
   disabledClassName?: string;
-  checkedClassName?: string;
+
   checkedColor?: 'green' | 'blue' | 'red' | 'yellow' | 'purple' | 'pink' | 'indigo';
   onCheckedChange?: (checked: boolean) => void;
   type?: 'checkbox';
@@ -37,11 +37,11 @@ export const CheckboxField = React.forwardRef<HTMLInputElement, CheckboxFieldPro
       inputClassName,
       error = false,
       helperText,
-      unCheckedClassName,
       errorText,
       leftIcon,
       rightIcon,
       CheckedIcon,
+      checkIconPosition,
       dataTestId,
       helperTextClassName,
       errorTextClassName,
@@ -50,8 +50,7 @@ export const CheckboxField = React.forwardRef<HTMLInputElement, CheckboxFieldPro
       labelWrapperClassName,
       containerClassName,
       disabledClassName,
-      checkedClassName,
-      checkedColor = 'blue',
+      checkedColor,
       disabled,
       checked,
       onCheckedChange,
@@ -92,14 +91,12 @@ export const CheckboxField = React.forwardRef<HTMLInputElement, CheckboxFieldPro
                 type={type}
                 data-testid={dataTestId}
                 className={cn(
-                  unCheckedClassName ? unCheckedClassName : 'peer h-4 w-4 rounded border border-gray-300 transition',
+                  inputClassName ? inputClassName : 'peer h-4 w-4 checked:bg-blue-500 checked:border-blue-500 checked:focus:ring-blue-500 border-1 border-gray-500 transition',
                   checkedColor ? getCheckedColorClasses() : '',
-                  checkedClassName,
                   error && 'border-red-500 focus:ring-red-500',
                   disabled && 'opacity-50 cursor-not-allowed',
                   disabled && disabledClassName,
-                  CheckedIcon && 'appearance-none',
-                  inputClassName
+                  CheckedIcon && 'appearance-none'
                 )}
                 disabled={disabled}
                 checked={checked}
@@ -108,7 +105,7 @@ export const CheckboxField = React.forwardRef<HTMLInputElement, CheckboxFieldPro
               />
               {CheckedIcon && checked && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                  <div className={cn(`transition-opacity transform -translate-y-[2px] ${checked ? 'opacity-100' : 'opacity-0'}`)}>
+                  <div className={cn(`transition-opacity transform ${checkIconPosition}  ${checked ? 'opacity-100' : 'opacity-0'}`)}>
                     {CheckedIcon}
                   </div>
                 </div>
