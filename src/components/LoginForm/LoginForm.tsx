@@ -55,10 +55,9 @@ const LoginForm = () => {
               id="email"
               type="email"
               autoComplete="email"
-              className="border-1 w-full border-pale-steel focus:border-1 focus:border-teal-green"
+              className={`border-1 w-full ${errors.email ? 'border-red-600' : 'border-pale-steel'} focus:border-1 focus:border-teal-green`}
               placeholder="Enter your email"
               error={!!errors.email}
-              // helperText="Please enter your email"
               errorText={errors.email?.message}
               {...field}
             />
@@ -83,7 +82,7 @@ const LoginForm = () => {
               id="password"
               type={showPassword ? 'text' : 'password'}
               autoComplete="current-password"
-              className="border-1 w-full border-pale-steel focus:border-1 focus:border-teal-green"
+              className={`border-1 w-full ${errors.password ? 'border-red-600' : 'border-pale-steel'} focus:border-1 focus:border-teal-green`}
               rightIcon={
                 <button
                   type="button"
@@ -98,7 +97,6 @@ const LoginForm = () => {
               rightIconPosition="top-6"
               placeholder="Enter your password"
               error={!!errors.password}
-              // helperText="Please enter your password"
               errorText={errors.password?.message}
               {...field}
             />

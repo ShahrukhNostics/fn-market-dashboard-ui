@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm/LoginForm';
 import loginPageImage from "../assets/pngs/loginpageImg.png"
 const Login = () => {
   return (
-    <main className="flex h-screen bg-white">
+    <main className="flex bg-white">
       <section
         className="flex flex-col items-start px-5 md:px-15 py-30 font-urbanist bg-white w-full lg:w-login-left-section"
         aria-label="Login Section"
@@ -22,7 +22,7 @@ const Login = () => {
         <LoginForm />
       </section>
 
-      <section className="hidden h- lg:flex relative bg-teal-green overflow-hidden flex-col gap-10 items-center justify-center w-login-right-section">
+      <section className="hidden lg:flex relative bg-teal-green overflow-hidden flex-col gap-10 items-center justify-center w-login-right-section">
         <div className="absolute rounded-full w-login-circle-width h-login-circle-height top-offset-top-neg-300 right-offset-right-neg-250 bg-gradient-login-circle" />
         {/* temporary img */}
         <div className='relative z-10 flex flex-col items-center gap-10 px-20 xl:px-20 lg:px-10'>
